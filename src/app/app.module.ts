@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { WorldmapComponent } from './worldmap/worldmap.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ToastComponent } from './task/toast/toast.component';
+import { FinishComponent } from './finish/finish.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WorldmapComponent,
     InventoryComponent,
-    ToastComponent
+    ToastComponent,
+    FinishComponent
   ],
   imports: [
     BrowserModule,

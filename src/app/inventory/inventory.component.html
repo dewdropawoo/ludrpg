@@ -2,3 +2,7 @@
     Inventory:
     <p *ngFor="let item of obtainedItems">{{item.name}}</p>
 </div>
+
+<div *ngIf="inventoryComplete">
+    <a routerLink="/finish">wow you did it</a>
+</div>

@@ -11,7 +11,11 @@ export class InventoryComponent implements OnInit {
    }
 
   get obtainedItems(): Item[] {
-    return  [...this.inventoryService.allItems.values()].filter((item: Item) => item.obtained);
+    return [...this.inventoryService.allItems.values()].filter((item: Item) => item.obtained);
+  }
+
+  get inventoryComplete(): boolean {
+    return this.obtainedItems.length === this.inventoryService.allItems.size;
   }
 
   ngOnInit(): void {
