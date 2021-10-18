@@ -3,12 +3,28 @@ import { Router } from '@angular/router';
 import { InventoryService } from 'src/app/inventory.service';
 import * as L from 'leaflet';
 
+interface Location {
+  imgUrl: string;
+  latLng: L.LatLng;
+}
+
+const THRESHOLD = 500; // meters
+const LOCATIONS: Location[] = [
+  {
+    imgUrl: 'https://via.placehold.com/200x200', 
+    latLng: L.latLng(49.2612491, -123.2502266),
+  },
+];
+
+
 @Component({
   selector: 'app-geowizard',
   templateUrl: './geowizard.component.html',
   styleUrls: ['./geowizard.component.css']
 })
 export class GeowizardComponent implements OnInit, AfterViewInit {
+  location: Location = LOCATIONS[0]; // TODO: update this to be a random one
+
   private map?: L.Map;
   selectedLatLng?: L.LatLng;
   clickMarker?: L.Marker;
@@ -50,14 +66,21 @@ export class GeowizardComponent implements OnInit, AfterViewInit {
     this.initMap();
    }
 
+  onLocationSubmit() {
+    const dist = this.selectedLatLng?.distanceTo(this.location.latLng) ?? 999999999999; // meters
+    if (dist < THRESHOLD) {
+      return this.onCorrect();
+    }
+    return this.onIncorrect();
+  }
 
   onCorrect() {
-    this.inventoryService.setObtained('amogus', true);
+    this.inventoryService.setObtained('map', true);
     this.router.navigate(['/worldmap']);
   }
 
   onIncorrect() {
-    this.inventoryService.setObtained('amogus', false);
+    this.inventoryService.setObtained('map', false);
     this.router.navigate(['/worldmap']);
   }
 

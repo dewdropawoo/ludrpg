@@ -5,5 +5,5 @@
 
 <div class="map-container nes-container">
     <div id="map"></div>
-    <button [ngClass]="selectedLatLng ? 'is-success' : 'is-disabled'" type="button" class="nes-btn submit-button">Submit</button>
+    <button [ngClass]="selectedLatLng ? 'is-success' : 'is-disabled'" type="button" class="nes-btn submit-button" (click)="onLocationSubmit()">Submit</button>
 </div>
