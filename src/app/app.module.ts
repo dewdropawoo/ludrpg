@@ -8,6 +8,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { ToastComponent } from './task/toast/toast.component';
 import { FinishComponent } from './finish/finish.component';
 import { GeowizardComponent } from './task/geowizard/geowizard.component';
+import { SplashComponent } from './splash/splash.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { GeowizardComponent } from './task/geowizard/geowizard.component';
     InventoryComponent,
     ToastComponent,
     FinishComponent,
-    GeowizardComponent
+    GeowizardComponent,
+    SplashComponent
   ],
   imports: [
     BrowserModule,
