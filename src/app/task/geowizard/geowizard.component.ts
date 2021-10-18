@@ -10,13 +10,16 @@ import * as L from 'leaflet';
 })
 export class GeowizardComponent implements OnInit, AfterViewInit {
   private map?: L.Map;
+  selectedLatLng?: L.LatLng;
+  clickMarker?: L.Marker;
   
   constructor(private readonly inventoryService: InventoryService, private readonly router: Router) { }
 
   private initMap(): void {
     this.map = L.map('map', {
       center: [ 39.8282, -98.5795 ],
-      zoom: 3
+      zoom: 3,
+      attributionControl: false
     });
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -26,6 +29,18 @@ export class GeowizardComponent implements OnInit, AfterViewInit {
     });
 
     tiles.addTo(this.map);
+
+    L.control.attribution({
+      position: 'bottomleft'
+    }).addTo(this.map);
+
+    this.map.on('click', (e: L.LeafletMouseEvent) => {
+      this.selectedLatLng = e.latlng;
+
+      this.clickMarker ? this.map?.removeLayer(this.clickMarker) : true;
+      this.clickMarker = new L.Marker(this.selectedLatLng, {interactive: false});
+      this.map?.addLayer(this.clickMarker);
+    })
   }
 
   ngOnInit(): void {

@@ -1,6 +1,9 @@
 <p>welcome to the geowizard task</p>
 
+<p>Time for some NMPZ! Pick the right spot to get my item.</p>
+
 
 <div class="map-container nes-container">
     <div id="map"></div>
+    <button [ngClass]="selectedLatLng ? 'is-success' : 'is-disabled'" type="button" class="nes-btn submit-button">Submit</button>
 </div>

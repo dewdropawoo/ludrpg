@@ -2,6 +2,14 @@
 padding: 0;
 }
 
+.map-container .submit-button {
+    position: absolute;
+    bottom: 0px;
+    right: -4px;
+    z-index: 99999999;
+}
+
 #map {
 height: 400px;
 }
+
