@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as C from '@chrisoakman/chessboardjs';
+declare let Chessboard: any;
 
 @Component({
   selector: 'app-hikaru',
@@ -12,7 +12,7 @@ export class HikaruComponent implements OnInit {
 
   ngOnInit(): void {
     var ruyLopez = 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R'
-    var board = Chessboard.ChessBoard('myBoard', ruyLopez)
+    var board = Chessboard('myBoard', ruyLopez);
 
   }
 
