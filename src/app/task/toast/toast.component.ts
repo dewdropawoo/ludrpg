@@ -8,25 +8,36 @@ import { InventoryService } from 'src/app/inventory.service';
   styleUrls: ['./toast.component.css']
 })
 export class ToastComponent implements OnInit {
-  questions: {video: string, options: string[]}[];
+  questions: {video: string, correct: string, options: string[]}[];
+  selectedOptions: {text: string, correct: boolean}[];
 
   constructor(private readonly inventoryService: InventoryService, private readonly router: Router) { 
     this.questions = [
-      {"video": "https://www.youtube.com/embed/dQw4w9WgXcQ", "options": ["never", "gonna", "give", "you"]},
-      {"video": "https://www.youtube.com/embed/kffacxfA7G4", "options": ["baby", "baby2", "baby3", "baby4"]},
-      {"video": "https://www.youtube.com/embed/CbWgiUJlxKQ", "options": ["boys", "the", "plan", "simple"]}
+      {"video": "https://www.youtube.com/embed/dQw4w9WgXcQ", "correct": "give", "options": ["never", "gonna", "you"]},
+      {"video": "https://www.youtube.com/embed/kffacxfA7G4", "correct": "baby", "options": ["baby2", "baby3", "baby4"]},
+      {"video": "https://www.youtube.com/embed/CbWgiUJlxKQ", "correct": "boys", "options": ["the", "plan", "simple"]}
     ];
+    this.selectedOptions = [];
   }
 
   ngOnInit(): void {
     // Select random and populate HTML
     var question = this.questions[Math.floor(Math.random() * this.questions.length)];
     (document.getElementById("toast-video") as HTMLIFrameElement).src = question["video"];
-     document.getElementById("toast-answer-1")!.innerHTML = question.options[0];
-     document.getElementById("toast-answer-2")!.innerHTML = question.options[1];
-     document.getElementById("toast-answer-3")!.innerHTML = question.options[2];
-     document.getElementById("toast-answer-4")!.innerHTML = question.options[3];
 
+    var selectedOptions = [{"text": question["correct"], "correct": true}];
+    for(let option of question["options"]) {
+      selectedOptions.push({"text": option, "correct": false});
+    }
+    this.selectedOptions = shuffleArray(selectedOptions);
+  }
+
+  answerHandler(correct: boolean) {
+    if(correct) {
+      this.onCorrect();
+    } else {
+      this.onIncorrect();
+    }
   }
 
   onCorrect() {
@@ -39,4 +50,12 @@ export class ToastComponent implements OnInit {
     this.router.navigate(['/worldmap']);
   }
 
+}
+
+function shuffleArray(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }

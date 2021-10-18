@@ -4,8 +4,5 @@
 <iframe width="560" height="315" id="toast-video" src="https://www.youtube.com/embed/KWtwIf-TSlo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <div class="nes-container" id="question-container">
-    <button type="button" id="toast-answer-1" class="nes-btn is-primary" (click)="onIncorrect()">wrong answer</button>
-    <button type="button" id="toast-answer-2" class="nes-btn is-primary" (click)="onIncorrect()">wrong answer</button>
-    <button type="button" id="toast-answer-3" class="nes-btn is-primary" (click)="onIncorrect()">right answer</button>
-    <button type="button" id="toast-answer-4" class="nes-btn is-primary" (click)="onIncorrect()">wrong answer</button>
+  <button *ngFor="let option of selectedOptions" type="button" id="toast-answer-1" class="nes-btn is-primary" (click)="answerHandler(option.correct)">{{option.text}}</button>
 </div>
