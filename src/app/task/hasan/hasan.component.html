@@ -1,0 +1,8 @@
+<br/><br/>
+<p>Hello Ludwig. You're looking kinda sus. </p>
+
+<img [src]="selectedImageURL" />
+
+<div class="nes-container" id="question-container">
+  <button *ngFor="let option of selectedOptions" type="button" class="nes-btn is-primary" (click)="answerHandler(option.correct)">{{option.text}}</button>
+</div>
