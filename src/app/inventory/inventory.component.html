@@ -1,8 +1,8 @@
-<div>
-    Inventory:
+<div class="nes-container with-title">
+    <p class="title">Inventory</p>
     <p *ngFor="let item of obtainedItems">{{item.name}}</p>
 </div>
 
 <div *ngIf="inventoryComplete">
-    <a routerLink="/finish">wow you did it</a>
+    <a routerLink="/finish">wow you did it >></a>
 </div>
