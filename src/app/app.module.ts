@@ -9,6 +9,7 @@ import { ToastComponent } from './task/toast/toast.component';
 import { FinishComponent } from './finish/finish.component';
 import { GeowizardComponent } from './task/geowizard/geowizard.component';
 import { SplashComponent } from './splash/splash.component';
+import { HasanComponent } from './task/hasan/hasan.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SplashComponent } from './splash/splash.component';
     ToastComponent,
     FinishComponent,
     GeowizardComponent,
-    SplashComponent
+    SplashComponent,
+    HasanComponent
   ],
   imports: [
     BrowserModule,

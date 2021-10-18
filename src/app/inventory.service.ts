@@ -26,6 +26,12 @@ export class InventoryService {
       imgUrl: 'https://via.placeholder.com/64x64',
       obtained: false,
     }],
+    ['aoc', {
+      name: 'aoc',
+      description: 'aoc',
+      imgUrl: 'https://via.placeholder.com/64x64',
+      obtained: false,
+    }],
   ]);
 
   allItemsChange: Subject<Map<string, Item>> = new Subject<Map<string, Item>>();
