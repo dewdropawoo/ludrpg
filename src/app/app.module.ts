@@ -10,6 +10,7 @@ import { FinishComponent } from './finish/finish.component';
 import { GeowizardComponent } from './task/geowizard/geowizard.component';
 import { SplashComponent } from './splash/splash.component';
 import { HasanComponent } from './task/hasan/hasan.component';
+import { HikaruComponent } from './task/hikaru/hikaru.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HasanComponent } from './task/hasan/hasan.component';
     FinishComponent,
     GeowizardComponent,
     SplashComponent,
-    HasanComponent
+    HasanComponent,
+    HikaruComponent
   ],
   imports: [
     BrowserModule,

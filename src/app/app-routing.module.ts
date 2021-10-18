@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FinishComponent } from './finish/finish.component';
 import { HasanComponent } from './task/hasan/hasan.component';
+import { HikaruComponent } from './task/hikaru/hikaru.component';
 import { SplashComponent } from './splash/splash.component';
 import { GeowizardComponent } from './task/geowizard/geowizard.component';
 import { ToastComponent } from './task/toast/toast.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'task/toast', component: ToastComponent},
   {path: 'task/geowizard', component: GeowizardComponent},
   {path: 'task/hasan', component: HasanComponent},
+  {path: 'task/hikaru', component: HikaruComponent},
   {path: 'finish', component: FinishComponent},
 ];
 
