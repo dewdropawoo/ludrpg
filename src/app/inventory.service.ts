@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 
 export interface Item {
@@ -17,15 +18,24 @@ export class InventoryService {
       name: 'amogus',
       description: 'amogus',
       imgUrl: 'https://via.placeholder.com/64x64',
-      obtained: true,
+      obtained: false,
     }],
   ]);
 
-  constructor() { }
+  allItemsChange: Subject<Map<string, Item>> = new Subject<Map<string, Item>>();
+
+
+  constructor() { 
+    this.allItemsChange.subscribe((value) => {
+      this.allItems = value;
+    });
+  }
 
   setObtained(name: string, obtained: boolean) {
     if (this.allItems.has(name)) {
-      this.allItems.set(name, {...this.allItems.get(name)!, obtained})
+      // angular does change detection by object reference
+      // need to create a new object to trigger render updates
+     this.allItemsChange.next(this.allItems.set(name, {...this.allItems.get(name)!, obtained}));
     }
   }
 
