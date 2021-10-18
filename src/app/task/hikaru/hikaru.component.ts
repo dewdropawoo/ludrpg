@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as Chessboard from 'chessboardjs';
+import * as C from '@chrisoakman/chessboardjs';
+
 @Component({
   selector: 'app-hikaru',
   templateUrl: './hikaru.component.html',
