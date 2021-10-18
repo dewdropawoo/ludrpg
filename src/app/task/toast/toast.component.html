@@ -1,10 +1,11 @@
-<p>welcome to the toast task</p>
+<br/><br/>
+<p>Hello Ludwig. You're looking kinda sus. </p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KWtwIf-TSlo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" id="toast-video" src="https://www.youtube.com/embed/KWtwIf-TSlo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<div class="nes-container">
-    <button type="button" class="nes-btn is-primary" (click)="onIncorrect()">wrong answer</button>
-    <button type="button" class="nes-btn is-primary" (click)="onIncorrect()">wrong answer</button>
-    <button type="button" class="nes-btn is-primary" (click)="onCorrect()">right answer</button>
-    <button type="button" class="nes-btn is-primary" (click)="onIncorrect()">wrong answer</button>
+<div class="nes-container" id="question-container">
+    <button type="button" id="toast-answer-1" class="nes-btn is-primary" (click)="onIncorrect()">wrong answer</button>
+    <button type="button" id="toast-answer-2" class="nes-btn is-primary" (click)="onIncorrect()">wrong answer</button>
+    <button type="button" id="toast-answer-3" class="nes-btn is-primary" (click)="onIncorrect()">right answer</button>
+    <button type="button" id="toast-answer-4" class="nes-btn is-primary" (click)="onIncorrect()">wrong answer</button>
 </div>
