@@ -7,8 +7,7 @@ import { InventoryService } from 'src/app/inventory.service';
   styleUrls: ['./toast.component.css']
 })
 export class ToastComponent implements OnInit {
-
-
+  // TODO: define question data here, and choose randomly to render
 
   constructor(private readonly inventoryService: InventoryService) { }
 
@@ -21,7 +20,6 @@ export class ToastComponent implements OnInit {
 
   onIncorrect() {
     this.inventoryService.setObtained('amogus', false);
-
   }
 
 }
