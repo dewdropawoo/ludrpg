@@ -1,19 +1,20 @@
-<div>
-  debug nav:
+<div class="main">
+  <div>
+    debug nav:
 
-  <a routerLink="/">splash </a>
-  
-  <a routerLink="/worldmap">worldmap </a>
+    <a routerLink="/">splash </a>
+    
+    <a routerLink="/worldmap">worldmap </a>
 
-  <a routerLink="/finish">finish </a>
+    <a routerLink="/finish">finish </a>
 
-  tasks:
-  
-  <a routerLink="/task/toast">toast </a>
-  <a routerLink="/task/geowizard">geowizard </a>
+    tasks:
+    
+    <a routerLink="/task/toast">toast </a>
+    <a routerLink="/task/geowizard">geowizard </a>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <app-inventory></app-inventory>
 </div>
-
-<router-outlet></router-outlet>
-
-
-<app-inventory></app-inventory>
