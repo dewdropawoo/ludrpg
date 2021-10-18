@@ -1,5 +1,9 @@
 <div class="nes-container with-title inventory">
     <p class="title">Inventory</p>
+    <div *ngIf="obtainedItems.length === 0">
+        Nothing yet!
+    </div>
+
     <div *ngFor="let item of obtainedItems" class="item">
         <img [src]="item.imgUrl" />
         <div class="item-description nes-container">
@@ -8,9 +12,8 @@
         </div>
     </div>
 
-
+    <div *ngIf="inventoryComplete">
+        <a routerLink="/finish">wow you did it >></a>
+    </div>
 </div>
 
-<div *ngIf="inventoryComplete">
-    <a routerLink="/finish">wow you did it >></a>
-</div>
