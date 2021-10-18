@@ -1,6 +1,11 @@
-<div class="nes-container with-title">
+<div class="nes-container with-title inventory">
     <p class="title">Inventory</p>
-    <p *ngFor="let item of obtainedItems">{{item.name}}</p>
+    <div *ngFor="let item of obtainedItems" class="item">
+        <img [src]="item.imgUrl" />
+        <span class="item-name">{{item.name}}</span>
+    </div>
+
+
 </div>
 
 <div *ngIf="inventoryComplete">

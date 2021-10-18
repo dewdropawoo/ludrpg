@@ -1,0 +1,15 @@
+.inventory {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 16px;
+}
+
+.inventory p.title {
+    position: absolute;
+}
+
+
+.inventory .item .item-name {
+    display: block;
+    text-align: center;
+}
