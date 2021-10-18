@@ -8,8 +8,22 @@
     position: absolute;
 }
 
-
 .inventory .item .item-name {
     display: block;
     text-align: center;
 }
+
+.inventory .item .item-description {
+    display: none;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    padding: .5em;
+    background: #fff;
+}
+
+
+.inventory .item:hover .item-description {
+    display: block;
+  }
