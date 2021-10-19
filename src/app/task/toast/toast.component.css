@@ -12,11 +12,13 @@
     height: 96px;
     width: 96px;
     image-rendering: pixelated;
+    flex: 0 1 auto;
+    align-self: flex-end
  }
  
 .message-list > .message .nes-balloon {
-    flex: 1 0 auto;
-    margin: 0px 16px 16px 16px;
+    flex: 1 1 auto;
+    margin: 0px 16px 24px 16px;
 }
 
 .message-list > .message.-left {

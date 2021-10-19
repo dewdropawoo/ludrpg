@@ -13,3 +13,33 @@ padding: 0;
 height: 400px;
 }
 
+.message-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-list > .message {
+   display: flex;
+   margin: 16px;
+}
+
+.message-list .message  img {
+    height: 96px;
+    width: 96px;
+    image-rendering: pixelated;
+    flex: 0 1 auto;
+    align-self: flex-end
+ }
+ 
+.message-list > .message .nes-balloon {
+    flex: 1 1 auto;
+    margin: 0px 16px 24px 16px;
+}
+
+.message-list > .message.-left {
+    align-self: flex-start;
+}
+
+.message-list > .message.-right {
+    align-self: flex-end;
+}
