@@ -7,7 +7,10 @@ import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 })
 export class ShakedrizzleComponent implements OnInit {
   @ViewChild('crop', {static: false})
-  canvas?: ElementRef;
+  canvas!: ElementRef;
+
+  @ViewChild('baseImage', {static: false})
+  baseImage!: ElementRef;
 
   startX: number = 0;
   startY: number = 0;
@@ -25,8 +28,8 @@ export class ShakedrizzleComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.canvas!.nativeElement.width = this.canvas!.nativeElement.offsetWidth;
-    this.canvas!.nativeElement.height = this.canvas!.nativeElement.offsetHeight;
+    this.canvas.nativeElement.width = this.canvas.nativeElement.offsetWidth;
+    this.canvas.nativeElement.height = this.canvas.nativeElement.offsetHeight;
     this.context = this.canvas?.nativeElement.getContext('2d')!;
     if (this.context) {
       this.context.rect(10, 10, 100, 100);
@@ -63,6 +66,7 @@ export class ShakedrizzleComponent implements OnInit {
     if (this.context) {
       this.context.clearRect(0, 0, this.canvas!.nativeElement.width, this.canvas!.nativeElement.height);
       this.context.beginPath();
+      this.context.drawImage(this.baseImage.nativeElement, 0, 0);
       this.context.rect(this.startX, this.startY, this.endX - this.startX, this.endY - this.startY);
       this.context.strokeStyle = 'black';
       this.context.stroke();
