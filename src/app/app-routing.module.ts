@@ -7,6 +7,7 @@ import { SplashComponent } from './splash/splash.component';
 import { GeowizardComponent } from './task/geowizard/geowizard.component';
 import { ToastComponent } from './task/toast/toast.component';
 import { WorldmapComponent } from './worldmap/worldmap.component';
+import { ShakedrizzleComponent } from './task/shakedrizzle/shakedrizzle.component';
 
 const routes: Routes = [
   {path: '', component: SplashComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'task/geowizard', component: GeowizardComponent},
   {path: 'task/hasan', component: HasanComponent},
   {path: 'task/hikaru', component: HikaruComponent},
+  {path: 'task/shakedrizzle', component: ShakedrizzleComponent},
   {path: 'finish', component: FinishComponent},
 ];
 

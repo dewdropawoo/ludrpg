@@ -1,0 +1,16 @@
+<section class="nes-container">
+    <section class="message-list">
+        <section class="message -left">
+            <img alt="toast" src="/assets/avatars/geowizard.jpg">
+            <div class="nes-balloon from-left">
+                <p>We need a new thumbnail, crop this image for us!</p>
+            </div>
+        </section>
+    </section>
+</section>
+
+<div class="nes-container canvas-wrap">
+    
+    <canvas #crop (mousedown)="mousedown($event)" (mouseup)="mouseup($event)" (mousemove)="mousemove($event)">
+    </canvas>
+</div>
