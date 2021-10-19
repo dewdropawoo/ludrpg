@@ -1,0 +1,28 @@
+.message-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-list > .message {
+   display: flex;
+   margin: 16px;
+}
+
+.message-list .message  img {
+    height: 96px;
+    width: 96px;
+    image-rendering: pixelated;
+ }
+ 
+.message-list > .message .nes-balloon {
+    flex: 1 0 auto;
+    margin: 0px 16px 16px 16px;
+}
+
+.message-list > .message.-left {
+    align-self: flex-start;
+}
+
+.message-list > .message.-right {
+    align-self: flex-end;
+}
