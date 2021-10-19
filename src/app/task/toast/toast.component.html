@@ -12,16 +12,28 @@
             </div>
             <img alt="toast" src="/assets/avatars/toast.jpg">
         </section>
+        <section class="message -left">
+            <div class="nes-balloon from-left">
+                <p>Who is the impostor in this video?</p>
+                <iframe width="560" height="315" id="toast-video" src="https://www.youtube.com/embed/KWtwIf-TSlo"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <img alt="toast" src="/assets/avatars/toast.jpg">
+        </section>
+        <section class="message -right">
+            <div class="nes-balloon from-right">
+                <p>Pick your answer</p>
+                <div class="nes-container" id="question-container">
+                    <button *ngFor="let option of selectedOptions" type="button" id="toast-answer-1" class="nes-btn is-primary"
+                        (click)="answerHandler(option.correct)">{{option.text}}</button>
+                </div>
+            </div>
+            <img alt="toast" src="/assets/avatars/toast.jpg">
+        </section>
     </section>
 </section>
 
 
-<iframe width="560" height="315" id="toast-video" src="https://www.youtube.com/embed/KWtwIf-TSlo"
-    title="YouTube video player" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
 
-<div class="nes-container" id="question-container">
-    <button *ngFor="let option of selectedOptions" type="button" id="toast-answer-1" class="nes-btn is-primary"
-        (click)="answerHandler(option.correct)">{{option.text}}</button>
-</div>
