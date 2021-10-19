@@ -12,6 +12,7 @@ import { SplashComponent } from './splash/splash.component';
 import { HasanComponent } from './task/hasan/hasan.component';
 import { HikaruComponent } from './task/hikaru/hikaru.component';
 import { ShakedrizzleComponent } from './task/shakedrizzle/shakedrizzle.component';
+import { XqcComponent } from './task/xqc/xqc.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ShakedrizzleComponent } from './task/shakedrizzle/shakedrizzle.componen
     SplashComponent,
     HasanComponent,
     HikaruComponent,
-    ShakedrizzleComponent
+    ShakedrizzleComponent,
+    XqcComponent
   ],
   imports: [
     BrowserModule,
