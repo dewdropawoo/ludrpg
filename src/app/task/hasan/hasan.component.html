@@ -1,8 +1,35 @@
-<br/><br/>
-<p>Hello Ludwig. You're looking kinda sus. </p>
 
-<img [src]="selectedImageURL" />
+<section class="nes-container">
+    <section class="message-list">
+        <section class="message -left">
+            <img alt="toast" src="/assets/avatars/hasan.jpeg">
+            <div class="nes-balloon from-left">
+                <p>... and chat that's why Mao wouldn't disapprove of my house. Oh hello Ludwig.</p>
+            </div>
+        </section>
+        <section class="message -right">
+            <div class="nes-balloon from-right">
+                <p>Hi Hasan. Let's get this over with.</p>
+            </div>
+            <img alt="toast" src="/assets/avatars/ludwig.png">
+        </section>
+        <section class="message -left">
+            <img alt="toast" src="/assets/avatars/hasan.jpeg">
+            <div class="nes-balloon from-left">
+                <p>{{selectedQuestion}}</p>
+            </div>
+        </section>
+        <section class="message -right">
+            <div class="nes-balloon from-right">
+                <p>Pick your answer</p>
+                <div class="nes-container" id="question-container">
+                  <button *ngFor="let option of selectedOptions" type="button" class="nes-btn is-primary" (click)="answerHandler(option.correct)">{{option.text}}</button>
+                </div>
+                            </div>
+            <img alt="toast" src="/assets/avatars/ludwig.png">
+        </section>
+    </section>
+</section>
 
-<div class="nes-container" id="question-container">
-  <button *ngFor="let option of selectedOptions" type="button" class="nes-btn is-primary" (click)="answerHandler(option.correct)">{{option.text}}</button>
-</div>
+
+

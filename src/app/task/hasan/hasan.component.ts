@@ -8,18 +8,18 @@ import { InventoryService } from 'src/app/inventory.service';
   styleUrls: ['./hasan.component.css']
 })
 export class HasanComponent implements OnInit {
-  questions: {video: string, correct: string, options: string[]}[];
-  selectedImageURL: string;
+  questions: {question: string, correct: string, options: string[]}[];
+  selectedQuestion: string;
   selectedOptions: {text: string, correct: boolean}[];
 
   constructor(private readonly inventoryService: InventoryService, private readonly router: Router) { 
     this.questions = [
-      {"video": "https://www.youtube.com/embed/dQw4w9WgXcQ", "correct": "give", "options": ["never", "gonna", "you"]},
-      {"video": "https://www.youtube.com/embed/kffacxfA7G4", "correct": "baby", "options": ["baby2", "baby3", "baby4"]},
-      {"video": "https://www.youtube.com/embed/CbWgiUJlxKQ", "correct": "boys", "options": ["the", "plan", "simple"]}
+      {"question": "What animal is the symbol of the US Democratic Party?", "correct": "donkey", "options": ["tiger", "elephant", "eagle"]},
+      {"question": "Famously, Bernie Sander's had an average donation amount of?", "correct": "$27", "options": ["$33", "$25", "$17"]},
+      {"question": "What is the occupation of Ben Shapiro's wife?", "correct": "doctor", "options": ["lawyer", "accountant", "twitch streamer"]}
     ];
     this.selectedOptions = [];
-    this.selectedImageURL = "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iMFSNPTLLalk/v0/1000x-1.jpg";
+    this.selectedQuestion = "uh oh something broke";
   }
 
   ngOnInit(): void {
@@ -32,6 +32,7 @@ export class HasanComponent implements OnInit {
       selectedOptions.push({"text": option, "correct": false});
     }
     this.selectedOptions = shuffleArray(selectedOptions);
+    this.selectedQuestion = question["question"];
   }
 
   answerHandler(correct: boolean) {
