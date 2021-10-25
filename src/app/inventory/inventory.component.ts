@@ -7,8 +7,7 @@ import { InventoryService, Item } from '../inventory.service';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  constructor(private readonly inventoryService: InventoryService) {
-   }
+  constructor(private readonly inventoryService: InventoryService) {   }
 
   get obtainedItems(): Item[] {
     return [...this.inventoryService.allItems.values()].filter((item: Item) => item.obtained);
@@ -16,6 +15,10 @@ export class InventoryComponent implements OnInit {
 
   get inventoryComplete(): boolean {
     return this.obtainedItems.length === this.inventoryService.allItems.size;
+  }
+
+  get showInventory(): boolean {
+    return this.inventoryService.showInventory;
   }
 
   ngOnInit(): void {

@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InventoryService } from 'src/app/inventory.service';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-xqc',
   templateUrl: './xqc.component.html',
   styleUrls: ['./xqc.component.css']
 })
-export class XqcComponent implements OnInit {
+export class XqcComponent extends Task implements OnInit {
   questions: {question: string, correct: string, options: string[]}[];
   selectedQuestion: string;
   selectedOptions: {text: string, correct: boolean}[];
 
-  constructor(private readonly inventoryService: InventoryService, private readonly router: Router) { 
+  constructor(protected readonly inventoryService: InventoryService, private readonly router: Router) { 
+    super(inventoryService);
     this.questions = [
       {"question": "Who is #15 on Twitch Earnings?", "correct": "loltyler1", "options": ["Asmongold", "Rubius", "moistcr1tikal"]},
       {"question": "Where does Mizkif rank on Twitch Earnings?", "correct": "#23", "options": ["#21", "#25", "#26"]},

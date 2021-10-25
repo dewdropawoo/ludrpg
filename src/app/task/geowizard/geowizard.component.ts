@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InventoryService } from 'src/app/inventory.service';
 import * as L from 'leaflet';
+import { Task } from '../task';
 
 interface Location {
   imgUrl: string;
@@ -22,14 +23,16 @@ const LOCATIONS: Location[] = [
   templateUrl: './geowizard.component.html',
   styleUrls: ['./geowizard.component.css']
 })
-export class GeowizardComponent implements OnInit, AfterViewInit {
+export class GeowizardComponent extends Task implements OnInit, AfterViewInit {
   location: Location = LOCATIONS[0]; // TODO: update this to be a random one
 
   private map?: L.Map;
   selectedLatLng?: L.LatLng;
   clickMarker?: L.Marker;
   
-  constructor(private readonly inventoryService: InventoryService, private readonly router: Router) { }
+  constructor(protected readonly inventoryService: InventoryService, private readonly router: Router) {
+    super(inventoryService);
+   }
 
   private initMap(): void {
     this.map = L.map('map', {

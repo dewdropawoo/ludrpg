@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InventoryService } from 'src/app/inventory.service';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-hasan',
   templateUrl: './hasan.component.html',
   styleUrls: ['./hasan.component.css']
 })
-export class HasanComponent implements OnInit {
+export class HasanComponent extends Task implements OnInit {
   questions: {question: string, correct: string, options: string[]}[];
   selectedQuestion: string;
   selectedOptions: {text: string, correct: boolean}[];
 
-  constructor(private readonly inventoryService: InventoryService, private readonly router: Router) { 
+  constructor(protected readonly inventoryService: InventoryService, private readonly router: Router) { 
+    super(inventoryService);
     this.questions = [
       {"question": "What animal is the symbol of the US Democratic Party?", "correct": "donkey", "options": ["tiger", "elephant", "eagle"]},
       {"question": "Famously, Bernie Sander's had an average donation amount of?", "correct": "$27", "options": ["$33", "$25", "$17"]},

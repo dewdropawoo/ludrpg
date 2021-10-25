@@ -13,6 +13,7 @@ export interface Item {
   providedIn: 'root'
 })
 export class InventoryService {
+  showInventory = false;
   allItems: Map<string, Item> = new Map([
     ['amogus', {
       name: 'amogus',

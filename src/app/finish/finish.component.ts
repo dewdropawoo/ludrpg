@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InventoryService } from '../inventory.service';
 
 @Component({
   selector: 'app-finish',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FinishComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly inventoryService: InventoryService) {
+  }
 
   ngOnInit(): void {
+    this.inventoryService.showInventory = false;
   }
 
 }

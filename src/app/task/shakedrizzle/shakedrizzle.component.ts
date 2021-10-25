@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { InventoryService } from 'src/app/inventory.service';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-shakedrizzle',
   templateUrl: './shakedrizzle.component.html',
   styleUrls: ['./shakedrizzle.component.css']
 })
-export class ShakedrizzleComponent implements OnInit {
+export class ShakedrizzleComponent extends Task implements OnInit {
   @ViewChild('crop', {static: false})
   canvas!: ElementRef;
 
@@ -22,7 +24,9 @@ export class ShakedrizzleComponent implements OnInit {
 
   public context?: CanvasRenderingContext2D;
 
-  constructor() { }
+  constructor(protected readonly inventoryService: InventoryService) {
+    super(inventoryService);
+   }
 
   ngOnInit(): void {
   }

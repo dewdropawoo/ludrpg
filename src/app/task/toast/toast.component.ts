@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InventoryService } from 'src/app/inventory.service';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-toast',
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.css']
 })
-export class ToastComponent implements OnInit {
+export class ToastComponent extends Task implements OnInit {
   questions: {video: string, correct: string, options: string[]}[];
   selectedOptions: {text: string, correct: boolean}[];
 
-  constructor(private readonly inventoryService: InventoryService, private readonly router: Router) { 
+  constructor(protected readonly inventoryService: InventoryService, private readonly router: Router) {
+    super(inventoryService);
     this.questions = [
       {"video": "https://www.youtube.com/embed/dQw4w9WgXcQ", "correct": "give", "options": ["never", "gonna", "you"]},
       {"video": "https://www.youtube.com/embed/kffacxfA7G4", "correct": "baby", "options": ["baby2", "baby3", "baby4"]},

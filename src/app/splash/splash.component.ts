@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InventoryService } from '../inventory.service';
 
 @Component({
   selector: 'app-splash',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SplashComponent implements OnInit {
 
-  constructor() { }
+  constructor(private inventoryService: InventoryService) {}
 
   ngOnInit(): void {
+    this.inventoryService.showInventory = false;
   }
 
 }

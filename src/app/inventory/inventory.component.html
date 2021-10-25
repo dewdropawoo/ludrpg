@@ -1,4 +1,4 @@
-<div class="nes-container with-title inventory">
+<div *ngIf="showInventory" class="nes-container with-title inventory">
     <p class="title">Inventory</p>
     <div *ngIf="obtainedItems.length === 0">
         Nothing yet!
