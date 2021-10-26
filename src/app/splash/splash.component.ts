@@ -1,5 +1,7 @@
+import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component, OnInit } from '@angular/core';
 import { InventoryService } from '../inventory.service';
+import { MusicService } from '../music.service';
 
 @Component({
   selector: 'app-splash',
@@ -8,10 +10,13 @@ import { InventoryService } from '../inventory.service';
 })
 export class SplashComponent implements OnInit {
 
-  constructor(private inventoryService: InventoryService) {}
+  constructor(private inventoryService: InventoryService, private musicService: MusicService) {}
 
   ngOnInit(): void {
     this.inventoryService.showInventory = false;
+
+    this.musicService.play('');
+    // TODO(music): let's start - kuwago?
   }
 
 }
