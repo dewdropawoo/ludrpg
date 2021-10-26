@@ -11,6 +11,7 @@ import { Task } from '../task';
 export class ToastComponent extends Task implements OnInit {
   questions: {video: string, correct: string, options: string[]}[];
   selectedOptions: {text: string, correct: boolean}[];
+  answerCorrect?: boolean;
 
   constructor(protected readonly inventoryService: InventoryService, private readonly router: Router) {
     super(inventoryService);
@@ -35,23 +36,10 @@ export class ToastComponent extends Task implements OnInit {
   }
 
   answerHandler(correct: boolean) {
-    if(correct) {
-      this.onCorrect();
-    } else {
-      this.onIncorrect();
-    }
+    // TODO: scroll to bottom to ensure reply is visible
+    this.inventoryService.setObtained('amogus', correct);
+    this.answerCorrect = correct;
   }
-
-  onCorrect() {
-    this.inventoryService.setObtained('amogus', true);
-    this.router.navigate(['/worldmap']);
-  }
-
-  onIncorrect() {
-    this.inventoryService.setObtained('amogus', false);
-    this.router.navigate(['/worldmap']);
-  }
-
 }
 
 function shuffleArray(array: any[]) {

@@ -32,6 +32,20 @@
             </div>
             <img alt="toast" src="/assets/avatars/toast.jpg">
         </section>
+        <section *ngIf="answerCorrect" class="message -left">
+            <div class="nes-balloon from-left">
+                <p>You got it! Looks like you might be the one with 10,000 IQ after all. Here's my item!</p>
+                <a routerLink="/worldmap" type="button" class="nes-btn is-success">Back to world map</a>
+            </div>
+            <img alt="toast" src="/assets/avatars/toast.jpg">
+        </section>
+        <section *ngIf="answerCorrect === false" class="message -left">
+            <div class="nes-balloon from-left">
+                <p>You got it! Looks like you might be the one with 10,000 IQ after all. Here's my item!</p>
+                <a routerLink="/worldmap" type="button" class="nes-btn is-success">Back to world map</a>
+            </div>
+            <img alt="toast" src="/assets/avatars/toast.jpg">
+        </section>
     </section>
 </section>
 
