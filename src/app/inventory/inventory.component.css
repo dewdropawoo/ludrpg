@@ -1,9 +1,10 @@
 .inventory {
+    position: sticky;
     display: flex;
     flex-flow: row wrap;
     gap: 16px;
     background: #fff;
-    min-height: 256px;
+    min-height: 200px;
 }
 
 .inventory p.title {

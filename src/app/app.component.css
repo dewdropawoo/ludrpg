@@ -1,6 +1,7 @@
 .main {
     height: 100%;
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin: auto;
     padding: 16px;
     width: 1024px;
@@ -8,8 +9,16 @@
     position: relative;
 }
 
+.bg {
+    background-image: url('/assets/bg/03-Late-Morning.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
 app-inventory {
-    position: absolute;
+    position: sticky;
     bottom: 0;
     left: 0;
     right: 0;

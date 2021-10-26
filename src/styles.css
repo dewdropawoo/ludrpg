@@ -6,7 +6,5 @@ html, body {
 
 body {
     font-family: 'Press Start 2P', cursive;
-    background-image: url('/assets/bg/03-Late-Morning.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: relative;
 }
