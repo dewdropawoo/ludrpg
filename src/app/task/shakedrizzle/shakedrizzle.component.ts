@@ -34,12 +34,8 @@ export class ShakedrizzleComponent extends Task implements OnInit {
   ngAfterViewInit(): void {
     this.canvas.nativeElement.width = this.canvas.nativeElement.offsetWidth;
     this.canvas.nativeElement.height = this.canvas.nativeElement.offsetHeight;
-    this.context = this.canvas?.nativeElement.getContext('2d')!;
-    if (this.context) {
-      this.context.rect(10, 10, 100, 100);
-      this.context.fillStyle = 'yellow';
-      this.context.fill();
-    }
+    this.context = this.canvas.nativeElement.getContext('2d')!;
+    requestAnimationFrame(this.drawCropRect);
   }
 
   mousedown(e: MouseEvent) {
@@ -47,7 +43,10 @@ export class ShakedrizzleComponent extends Task implements OnInit {
     const rect = this.canvas?.nativeElement.getBoundingClientRect();
     this.startX = e.clientX - rect.left;
     this.startY = e.clientY - rect.top;
+    this.endX = this.startX;
+    this.endY = this.startY;
     this.shouldDrawCrop = true;
+    requestAnimationFrame(() => this.drawCropRect())
   }
 
   mouseup(e: MouseEvent) {
@@ -57,7 +56,7 @@ export class ShakedrizzleComponent extends Task implements OnInit {
 
   mousemove(e: MouseEvent) {
     if (this.shouldDrawCrop) {
-      const rect = this.canvas?.nativeElement.getBoundingClientRect();
+      const rect = this.canvas.nativeElement.getBoundingClientRect();
 
       this.endX = e.clientX - rect.left;
       this.endY = e.clientY - rect.top;
