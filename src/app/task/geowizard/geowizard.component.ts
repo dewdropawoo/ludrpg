@@ -24,7 +24,7 @@ const LOCATIONS: Location[] = [
   styleUrls: ['./geowizard.component.css']
 })
 export class GeowizardComponent extends Task implements OnInit, AfterViewInit {
-  location: Location = LOCATIONS[0]; // TODO: update this to be a random one
+  location: Location;
 
   private map?: L.Map;
   selectedLatLng?: L.LatLng;
@@ -32,6 +32,7 @@ export class GeowizardComponent extends Task implements OnInit, AfterViewInit {
   
   constructor(protected readonly inventoryService: InventoryService, private readonly router: Router) {
     super(inventoryService);
+    this.location = LOCATIONS[Math.floor(Math.random() * LOCATIONS.length)];
    }
 
   private initMap(): void {
